@@ -59,7 +59,7 @@ angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.ser
     .state('bucket.completed', {
       url: '/completed',
       views: {
-        'bucket-completed' {
+        'bucket-completed': {
           templateUrl: 'templates/bucket-completed.html',
           controllers: 'completedCtrl'
         }
