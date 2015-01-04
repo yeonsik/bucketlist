@@ -63,7 +63,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 				if(error.error && error.error.code == 11000) {
 					$rootScope.notify("A user with this email already exists");
 				} else {
-					$rootScope.notify("Oops something went wrong, Please try again!");
+					$rootScope.notify("[Register] Oops something went wrong, Please try again!");
 				}
 			});
 		}
@@ -96,7 +96,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 				$rootScope.hide();
 			}).error(function (data, status, headers, config) {
 				$rootScope.hide();
-				$rootScope.notify("Oops something went wrong!! Please try again later");
+				$rootScope.notify("[Bucket List] Oops something went wrong!! Please try again later");
 			});
 		});
 
@@ -112,7 +112,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 					$rootScope.doRefresh(1);
 				}).error(function (data, status, headers, config) {
 					$rootScope.hide();
-					$rootScope.notify("Oops something went wrong!! Please try again later");
+					$rootScope.notify("[Mark Complelted] Oops something went wrong!! Please try again later");
 				});
 		};
 
@@ -124,7 +124,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 				$rootScope.doRefresh(1);
 			}).error(function (data, status, headers, config) {
 				$rootScope.hide();
-				$rootScope.notify("Oops something went wrong!! Please try again later");
+				$rootScope.notify("[Delete Item] Oops something went wrong!! Please try again later");
 			});
 		};
 	})
@@ -150,7 +150,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 					$scope.noData = false;
 				}
 			}).error(function (data, status, headers, config) {
-				$rootScope.notify("Oops something went wrong!! Please try again later");
+				$rootScope.notify("[Completed List] Oops something went wrong!! Please try again later");
 			});
 		});
 
@@ -163,7 +163,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 					$rootScope.doRefresh(2);
 				}).error(function (data, status, headers, config) {
 					$rootScope.hide();
-					$rootScope.notify("Oops something went wrong!! Please try again later");
+					$rootScope.notify("[Delete Item] Oops something went wrong!! Please try again later");
 				});
 		};
 	})
@@ -200,7 +200,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 				})
 				.error(function (data, status, headers, config) {
 					$rootScope.hide();
-					$rootScope.notify("Oops something went wrong!! Please try again later");
+					$rootScope.notify("[Create New Item] Oops something went wrong!! Please try again later");
 				});
 		};
 	})
