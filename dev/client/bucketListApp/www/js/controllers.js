@@ -1,8 +1,8 @@
 angular.module('bucketList.controllers', ['bucketList.services'])
 
-	.controller('SignInCtrl', function ($rootSope, $scope, API, $window) {
+	.controller('SignInCtrl', function ($rootScope, $scope, API, $window) {
 		// if the user is already logged in, take him to his bucketlist
-		if ($rootSope.isSessionActive()) {
+		if ($rootScope.isSessionActive()) {
 			$window.location.href = ('#bucket/list');
 		}
 
@@ -15,21 +15,21 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 			var email = this.user.email;
 			var paassword = this.user.password;
 			if (!email || !password) {
-				$rootSope.notify("Please enter valid credentials");
+				$rootScope.notify("Please enter valid credentials");
 				return false;
 			}
-			$rootSope.show("Please wait.. Authenticating");
+			$rootScope.show("Please wait.. Authenticating");
 
 			API.signin({
 				email: email,
 				password: password
 			}).success(function (data) {
-				$rootSope.setToken(email);	// create a session kind of thing on the client side
-				$rootSope.hide();
+				$rootScope.setToken(email);	// create a session kind of thing on the client side
+				$rootScope.hide();
 				$window.location.href = ("#/bucket/list");
 			}).error(function (error) {
-				$rootSope.hide();
-				$rootSope.notify("Invalid Username or password");
+				$rootScope.hide();
+				$rootScope.notify("Invalid Username or password");
 			});
 		}
 	})
