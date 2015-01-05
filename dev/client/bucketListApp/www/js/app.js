@@ -17,7 +17,7 @@ angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.ser
     }
   });
 })
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('auth', {
       url: "/auth",
@@ -29,7 +29,7 @@ angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.ser
       views: {
         'auth-signin': {
           templateUrl: 'templates/auth-signin.html',
-          controller: 'SignInCtrl'
+          controller: 'SignInController'
         }
       }
     })
@@ -38,7 +38,7 @@ angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.ser
       views: {
         'auth-signup': {
           templateUrl: 'templates/auth-signup.html',
-          controller: 'SignUpCtrl'
+          controller: 'SignUpController'
         }
       }
     })
@@ -52,7 +52,7 @@ angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.ser
       views: {
         'bucket-list': {
           templateUrl: 'templates/bucket-list.html',
-          controller: 'myListCtrl'
+          controller: 'MyListController'
         }
       }
     })
@@ -61,7 +61,7 @@ angular.module('bucketList', ['ionic', 'bucketList.controllers', 'bucketList.ser
       views: {
         'bucket-completed': {
           templateUrl: 'templates/bucket-completed.html',
-          controller: 'completedCtrl'
+          controller: 'CompletedController'
         }
       }
     })

@@ -1,6 +1,6 @@
 angular.module('bucketList.controllers', ['bucketList.services'])
 
-	.controller('SignInCtrl', function ($rootScope, $scope, API, $window) {
+	.controller('SignInController', function ($rootScope, $scope, API, $window) {
 		// if the user is already logged in, take him to his bucketlist
 		if ($rootScope.isSessionActive()) {
 			$window.location.href = ('#bucket/list');
@@ -13,7 +13,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 
 		$scope.validateUser = function () {
 			var email = this.user.email;
-			var paassword = this.user.password;
+			var password = this.user.password;
 			if (!email || !password) {
 				$rootScope.notify("Please enter valid credentials");
 				return false;
@@ -34,7 +34,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 		}
 	})
 
-	.controller('SignUpCtrl', function ($rootScope, $scope, API, $window) {
+	.controller('SignUpController', function ($rootScope, $scope, API, $window) {
 		$scope.user = {
 			email: "",
 			password: "",
@@ -69,7 +69,8 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 		}
 	})
 
-	.controller('myListCtrl', function ($rootScope, $scope, API, $timeout, $ionicModal, $window) {
+	.controller('MyListController', function ($rootScope, $scope, API, $timeout, $ionicModal, $window) {
+
 		$rootScope.$on('fetchAll', function () {
 			API.getAll($rootScope.getToken()).success(function (data, status, headers, config) {
 				$rootScope.show("Please wait... Processing");
@@ -82,10 +83,8 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 
 				if ($scope.list.length == 0) {
 					$scope.noData = true;
-					console.log("noData");
 				} else {
 					$scope.noData = false;
-					console.log("noData false");
 				}
 
 				$ionicModal.fromTemplateUrl('templates/newItem.html', function (modal) {
@@ -95,6 +94,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 				$scope.newTask = function () {
 					$scope.newTemplate.show();
 				};
+
 				$rootScope.hide();
 			}).error(function (data, status, headers, config) {
 				$rootScope.hide();
@@ -131,7 +131,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 		};
 	})
 	
-	.controller('completedCtrl', function ($rootScope, $scope, API, $window) {
+	.controller('CompletedController', function ($rootScope, $scope, API, $window) {
 		$rootScope.$on('fetchCompleted', function () {
 			API.getAll($rootScope.getToken()).success(function (data, status, headers, config) {
 				$scope.list = [];
@@ -170,7 +170,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 		};
 	})
 
-	.controller('newCtrl', function ($rootScope, $scope, API, $window) {
+	.controller('NewController', function ($rootScope, $scope, API, $window) {
 		$scope.data = {
 			item: ""
 		};
