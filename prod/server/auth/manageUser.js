@@ -47,7 +47,7 @@ module.exports = function (server, db) {
 				error: "Invalid Credentials"
 			}));
 		}
-		colsole.log("in");
+		console.log("in");
 		db.appUsers.findOne({
 			email: req.params.email
 		}, function (err, dbUser) {
