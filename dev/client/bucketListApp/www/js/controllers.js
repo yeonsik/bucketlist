@@ -82,8 +82,10 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 
 				if ($scope.list.length == 0) {
 					$scope.noData = true;
+					console.log("noData");
 				} else {
 					$scope.noData = false;
+					console.log("noData false");
 				}
 
 				$ionicModal.fromTemplateUrl('templates/newItem.html', function (modal) {
@@ -138,7 +140,7 @@ angular.module('bucketList.controllers', ['bucketList.services'])
 						$scope.list.push(data[i]);
 					}
 				};
-				if (data.length > 0 & scope.list.length == 0) {
+				if (data.length > 0 & $scope.list.length == 0) {
 					$scope.incomplete = true;
 				} else {
 					$scope.incomplete = false;
