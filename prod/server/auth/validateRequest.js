@@ -1,4 +1,4 @@
-var isEmailValid = function (eb, email, callback) {
+var isEmailValid = function (db, email, callback) {
 	db.appUsers.findOne({
 		email: email
 	}, function (err, user) {
